@@ -46,7 +46,7 @@ class Generator(nn.Module):
 
         self.model = nn.Sequential(*model)
 
-    def forward(self, input):
+    def forward(self, input):   #forward前向计算
         output = self.model(input)
         attention_mask = F.sigmoid(output[:, :1])
         content_mask = output[:, 1:]
