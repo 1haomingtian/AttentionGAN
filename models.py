@@ -51,7 +51,7 @@ class Generator(nn.Module):
         attention_mask = F.sigmoid(output[:, :1])
         content_mask = output[:, 1:]
         attention_mask = attention_mask.repeat(1, 3, 1, 1)
-        result = content_mask * attention_mask + input * (1 - attention_mask)
+        result = content_mask * attention_mask + input * (1 - attention_mask)   #损失函数部分
 
         return result, attention_mask, content_mask
 
